@@ -86,6 +86,36 @@ var b = new point();
 b.x=3;
 b.y=4;
 b.toString();
+/* 样式 */
+class LotsOfStyles extends Component{
+	render(){
+		return(
+			<View>
+			<Text style={styles.red}>just red</Text>
+			<Text style={styles.bigblue}>just bigblue </Text>
+			<Text style={[styles.bigblue, styles.red]}>bigblue, then red</Text>
+        <Text style={[styles.red, styles.bigblue]}>red, then bigblue</Text>
+			</View>
+			);
+	}
+}
+// 常见的做法是按顺序声明和使用style属性，以借鉴CSS中的“层叠”做法（即后声明的属性会覆盖先声明的同名属性）。
+// 看运行效果，可得知
+const styles = StyleSheet.create({
+	bigblue: {
+color:'blue',
+fontWeight:'bold',
+fontSize: 30,
+	},
+	red:{
+color: 'red',
+	},
+
+});
+
+
+
+
 
 // 注意，这里用引号括起来的'AwesomeProject'必须和你init创建的项目名一致
-AppRegistry.registerComponent('AwesomeProject', () => BlinkApp);
+AppRegistry.registerComponent('AwesomeProject', () => LotsOfStyles);
