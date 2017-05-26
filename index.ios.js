@@ -131,9 +131,64 @@ class FixedDimensionsBasics extends Component{
 			);
 	}
 }
+// 使用flexBox布局
+class FlexDirectionBasics extends Component{
+	render(){
+		return(
+			// 尝试把`flexDirection`改为`column`看看
+			<View style={{flex:1,flexDirection:'row'}}>
+			<View style={{flex:1,backgroundColor:'powderblue'}}/>
+<View style={{flex:2,backgroundColor:'steelblue'}}/>
+<View style={{width:50,height:50,backgroundColor:'skyblue'}}/>
+			</View>
+			);
+	}
+}
+class JustifyContentBasics extends Component{
+	render(){
+		return(
+			// 对应的这些可选项有：flex-start、center、flex-end、space-around以及space-between。
+			// 尝试把`justifyContent`改为`center`看看
+      // 尝试把`flexDirection`改为`row`看看
+			<View style={{
+				flex:1,
+				flexDirection:'column',
+				justifyContent:'space-around',
+			}}
+				>
+				<View style={{width: 50,height:50,backgroundColor:'powderblue'}}/>
+			<View style={{width:50,height:50,backgroundColor:'skyblue'}}/>
+			<View style={{width:50,height:50,backgroundColor:'steelblue'}}/>
 
+				</View>
+
+			);
+	}
+}
+class AlignItemBasics extends Component{
+	render(){
+		return(
+			// 尝试把`alignItems`改为`flex-start`看看
+      // 尝试把`justifyContent`改为`flex-end`看看
+      // 尝试把`flexDirection`改为`row`看看
+      // 对应的这些可选项有:flex-start、center、flex-end以及stretch
+			// 注意：要使stretch选项生效的话，子元素在次轴方向上不能有固定的尺寸。以下面的代码为例：只有将子元素样式中的width: 50去掉之后，alignItems: 'stretch'才能生效。
+			<View style={{flex:1,
+				flexDirection:'column',
+				justifyContent:'center',
+				alignItems:'stretch',
+
+			}}>
+			<View style={{height:50,backgroundColor:'powderblue'}}/>
+			<View style={{height:50,backgroundColor:'skyblue'}}/>
+			<View style={{height:50,backgroundColor:'steelblue'}}/>
+			</View>
+			);
+	}
+
+}
 
 
 
 // 注意，这里用引号括起来的'AwesomeProject'必须和你init创建的项目名一致
-AppRegistry.registerComponent('AwesomeProject', () => FixedDimensionsBasics);
+AppRegistry.registerComponent('AwesomeProject', () => AlignItemBasics);
