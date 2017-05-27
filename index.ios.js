@@ -9,7 +9,7 @@ import {
   AppRegistry,
   StyleSheet,
   Text,
-  Image,
+  Image,TextInput,
   View
 } from 'react-native';
 /* 假如我们需要制作一段不停闪烁的文字。文字内容本身在组件创建时就已经指定好了，所以文字内容应该是一个prop。而文字的显示或隐藏的状态（快速的显隐切换就产生了闪烁的效果）则是随着时间变化的，因此这一状态应该写到state中
@@ -173,7 +173,8 @@ class AlignItemBasics extends Component{
       // 尝试把`flexDirection`改为`row`看看
       // 对应的这些可选项有:flex-start、center、flex-end以及stretch
 			// 注意：要使stretch选项生效的话，子元素在次轴方向上不能有固定的尺寸。以下面的代码为例：只有将子元素样式中的width: 50去掉之后，alignItems: 'stretch'才能生效。
-			<View style={{flex:1,
+			<View style={{
+				flex:1,
 				flexDirection:'column',
 				justifyContent:'center',
 				alignItems:'stretch',
@@ -187,8 +188,34 @@ class AlignItemBasics extends Component{
 	}
 
 }
+// 处理文本输入
+class PizzaTranslator extends Component{
+	constructor(props){
+		super(props);
+		this.state={text:''};
+	}
+	render(){
+		return(
+			<View style={{padding:10}}>
+			<TextInput 
+			style={{height:40}}
+			placeholder="type here to translate!"
+			onChangeText={(text) => this.setState({text})}/>
+			<Text style={{padding:10,fontSize:42}}>
+			{this.state.text.split(' ').map((word) => word && '🍕').join('')}
+			</Text>
+			</View>
+			);
+	}
+}
+function fetch(url,{method='GET'} = {}){
+	console.log(method);
+}
+fetch('http://');
+fetch('htto',{method:'dddddddddd'});
+
 
 
 
 // 注意，这里用引号括起来的'AwesomeProject'必须和你init创建的项目名一致
-AppRegistry.registerComponent('AwesomeProject', () => AlignItemBasics);
+AppRegistry.registerComponent('AwesomeProject', () => PizzaTranslator);
