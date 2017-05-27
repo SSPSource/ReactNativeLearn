@@ -212,7 +212,9 @@ function fetch(url,{method='GET'} = {}){
 	console.log(method);
 }
 fetch('http://');
-fetch('htto',{method:'dddddddddd'});
+fetch('htto',{method:'此处未设置就是默认值Get，设置的话，就是此内容'});
+
+
 
 
 
