@@ -10,6 +10,7 @@ import {
   StyleSheet,
   Text,
   Image,TextInput,
+  ScrollView,
   View
 } from 'react-native';
 /* 假如我们需要制作一段不停闪烁的文字。文字内容本身在组件创建时就已经指定好了，所以文字内容应该是一个prop。而文字的显示或隐藏的状态（快速的显隐切换就产生了闪烁的效果）则是随着时间变化的，因此这一状态应该写到state中
@@ -214,10 +215,38 @@ function fetch(url,{method='GET'} = {}){
 fetch('http://');
 fetch('htto',{method:'此处未设置就是默认值Get，设置的话，就是此内容'});
 
+// 如何使用ScrollView
+// ScrollView适合用来显示数量不多的滚动元素。放置在ScollView中的所有组件都会被渲染，哪怕有些组件因为内容太长被挤出了屏幕外。如果你需要显示较长的滚动列表，那么应该使用功能差不多但性能更好的ListView组件。
+class IScrolledDownAndWhatHappenedNextShockedMe extends Component{
+	render(){
+		let pic = {
+uri:'https://upload.wikimedia.org/wikipedia/commons/d/de/Bananavarieties.jpg'
+		
+		};
+		return(
+			
+			<ScrollView>
+			<Text style={{fontSize:96}}>Scroll me plz</Text>
+			<Image  source={pic} style={{width:193,height:110}}/>
+			<Image  source={pic} style={{width:293,height:210}}/>
+			<Text style={{fontSize:96}}>Scroll2 me plz</Text>
+			<Image  source={pic} style={{width:193,height:110}}/>
+			<Image  source={pic} style={{width:293,height:210}}/>
+			<Text style={{fontSize:45}}>Scrollewe me plz</Text>
+			<Image  source={pic} style={{width:193,height:110}}/>
+			<Image  source={pic} style={{width:293,height:210}}/>
+			<Text style={{fontSize:24}}>Scroll呃呃呃2 me plz</Text>
+			<Image  source={pic} style={{width:193,height:110}}/>
+			<Image  source={pic} style={{width:293,height:210}}/>
+			</ScrollView>
+
+			);
+	}
+}
 
 
 
 
 
 // 注意，这里用引号括起来的'AwesomeProject'必须和你init创建的项目名一致
-AppRegistry.registerComponent('AwesomeProject', () => PizzaTranslator);
+AppRegistry.registerComponent('AwesomeProject', () => IScrolledDownAndWhatHappenedNextShockedMe);
