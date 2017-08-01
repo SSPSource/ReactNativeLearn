@@ -135,7 +135,34 @@ function f() {
 }
 
 f(); 
+/************** 变量的解构赋值 *********/
+// 1.ES6 允许按照一定模式，从数组和对象中提取值，对变量进行赋值，这被称为解构
+/************** 变量的解构赋值 *********/
 
+var {x = 3} = {x: undefined};
+// x // 3
+
+var {x = 3} = {x: null};
+// x // null
+// 上面代码中，如果x属性等于null，就不严格相等于undefined，导致默认值不会生效。
+
+// 如果解构失败，变量的值等于undefined。
+
+// 上面代码对数组进行对象解构。数组arr的0键对应的值是1，[arr.length - 1]就是2键，对应的值是3。方括号这种写法，属于“属性名表达式”，参见《对象的扩展》一章。
+let arr = [1, 2, 3];
+let {0 : first, [arr.length - 1] : last} = arr;
+// first // 1
+// last // 3
+logmes="====dsd=111===";
+ console.log(logmes+last);
+echo('<ul>');
+
+for(var i=0; i < data.supplies.length; i++) {
+  echo('<li>');
+  echo(data.supplies[i]);
+  echo('</li>');
+};
+echo('</ul>');
 
 class HelloWorldApp extends Component{
   render(){
